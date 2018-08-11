@@ -1,0 +1,21 @@
+{
+  "name": "ml-filter",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ml5js",
+    "style-transfer",
+    "image-filter"
+  ],
+  "author": "Carlos Domínguez García",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  }
+}
