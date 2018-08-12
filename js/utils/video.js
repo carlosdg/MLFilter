@@ -1,5 +1,17 @@
+/**
+ * Utility functions for working with video
+ * 
+ * @author Carlos Domínguez García
+ */
+
+
 import { MAX_DIMENSIONS } from "./dimensions";
 
+/**
+ * Creates a video element
+ * 
+ * @returns a new video element
+ */
 function createVideo() {
   const video = document.createElement("video");
   video.setAttribute("autoplay", "true");
@@ -9,12 +21,25 @@ function createVideo() {
   return video;
 }
 
+/**
+ * Adds the markup necessary to the page to render the given video
+ * 
+ * @param {HTMLVideoElement} video Video to add to the page
+ */
 function addVideoToView(video) {
   document.body.appendChild(video);
 }
 
-// Assigns a media source to a video and returns a promise
-// that resolves when the stream is loaded
+
+
+/**
+ * Assigns a media source to a video and returns a promise
+ * that resolves when the stream is loaded
+ * 
+ * @param {*} stream Stream to load into the given video
+ * @param {*} video Video where the given stream will be loaded
+ * @returns {Promise} Resolves when the stream is loaded in the given video
+ */
 function loadStreamInVideo(stream, video) {
   try {
     video.srcObject = stream;
@@ -30,6 +55,11 @@ function loadStreamInVideo(stream, video) {
   );
 }
 
+/**
+ * Returns the videoWidth / videoHeight of the given video
+ * 
+ * @param {*} video Video to get the width and height from
+ */
 function getWithHeightRatio(video) {
   if (video.videoHeight > 0 && video.videoHeight > 0) {
     return video.videoWidth / video.videoHeight;

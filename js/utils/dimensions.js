@@ -1,7 +1,21 @@
-// Video and images maximum dimensions. If we were to allow
-// arbitrary large video or images the app would be much slower
+/**
+ * Utility functions for dimensions
+ * 
+ * @author Carlos Domínguez García
+ */
+
+/** 
+ * Video and images maximum dimensions. If we were to allow
+ * arbitrary large video or images the app would be much slower
+ */
 export const MAX_DIMENSIONS = { width: 500, height: 500 };
 
+/**
+ * Returns whether the given dimensions are in the right bounds or not
+ * 
+ * @param {Object} dimensions {width, height} Dimensions to check
+ * @returns Whether the given dimensions are in the right bounds or not
+ */
 function areCorrectDimensions(dimensions) {
   return (
     dimensions.width > 0 &&

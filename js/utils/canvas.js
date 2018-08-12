@@ -1,5 +1,19 @@
+/**
+ * Utility functions for working with canvas
+ * 
+ * @author Carlos Domínguez García
+ */
+
 import DimensionUtils from "./dimensions";
 
+/**
+ * Creates a canvas from the given data URL and dimensions and returns
+ * a promise that resolves when the image is painted in the canvas
+ * 
+ * @param {String} dataUrl Image as data URL to put into the canvas
+ * @param {Object} dimensions {width, height} Dimensions of the canvas
+ * @returns {Promise} A promise that resolves when the image is loaded into the canvas
+ */
 function createCanvasFromDataUrl(dataUrl, dimensions) {
   if (!DimensionUtils.areCorrectDimensions(dimensions)) {
     throw new Error(`Invalid dimensions {width: ${dimensions.width} height: ${dimensions.height}}`);
@@ -21,8 +35,14 @@ function createCanvasFromDataUrl(dataUrl, dimensions) {
   );
 }
 
+// DOM element where we'll put the canvases
 const resultsDiv = document.getElementById("results-section");
 
+/**
+ * Adds the markup necessary to the page to render the given canvas
+ * 
+ * @param {HTMLCanvasElement} canvas Canvas to add to the DOM
+ */
 function addCanvasToView(canvas) {
   const currentCanvasId = resultsDiv.children.length + 1;
 
