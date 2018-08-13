@@ -39,26 +39,43 @@ function createCanvasFromDataUrl(dataUrl, dimensions) {
 const resultsDiv = document.getElementById("result-list");
 
 /**
+ * Creates a link to download the content of href.
+ * Note: does not check for same-origin policy
+ * 
+ * @param {String} href URL with the content to download
+ * @param {Object} options {downloadedFileName: <String> name that the downloaded 
+ * file will be given, linkName: <String> name of the link}
+ */
+function createCanvasDownloadLink(href, {downloadedFileName = 'download', linkName = 'download'} = {}) {
+  const link = document.createElement("a");
+  link.setAttribute("download", downloadedFileName);
+  link.setAttribute("href", href);
+  link.classList.add("download-image-button");
+  link.innerText = linkName;
+
+  return link;
+}
+
+/**
  * Adds the markup necessary to the page to render the given canvas
  * 
  * @param {HTMLCanvasElement} canvas Canvas to add to the DOM
  */
 function addCanvasToView(canvas) {
-  const currentCanvasId = resultsDiv.children.length + 1;
+  const imageId = resultsDiv.children.length + 1;
   canvas.setAttribute("role", "img");
-  canvas.setAttribute("aria-label", `Photo ${currentCanvasId} after applying the filter`);
+  canvas.setAttribute("aria-label", `Photo ${imageId} after applying the filter`);
 
   const container = document.createElement("li");
   container.classList.add("result-container");
 
-  const link = document.createElement("a");
-  link.setAttribute("download", `photo_${currentCanvasId}`);
-  link.setAttribute("href", canvas.toDataURL());
-  link.classList.add("download-image-button");
-  link.innerText = `Download Photo ${currentCanvasId}`;
+  const downloadLink = createCanvasDownloadLink(canvas.toDataURL(), {
+    downloadedFileName: `photo_${imageId}`,
+    linkName: `Download Photo ${imageId}`
+  });
 
   container.appendChild(canvas);
-  container.appendChild(link);
+  container.appendChild(downloadLink);
   resultsDiv.appendChild(container);
 }
 
