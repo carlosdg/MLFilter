@@ -36,7 +36,7 @@ function createCanvasFromDataUrl(dataUrl, dimensions) {
 }
 
 // DOM element where we'll put the canvases
-const resultsDiv = document.getElementById("results-section");
+const resultsDiv = document.getElementById("result-list");
 
 /**
  * Adds the markup necessary to the page to render the given canvas
@@ -45,16 +45,17 @@ const resultsDiv = document.getElementById("results-section");
  */
 function addCanvasToView(canvas) {
   const currentCanvasId = resultsDiv.children.length + 1;
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", `Photo ${currentCanvasId} after applying the filter`);
 
-  const container = document.createElement("div");
-  container.setAttribute("data-id", currentCanvasId);
+  const container = document.createElement("li");
   container.classList.add("result-container");
 
   const link = document.createElement("a");
   link.setAttribute("download", `photo_${currentCanvasId}`);
   link.setAttribute("href", canvas.toDataURL());
   link.classList.add("download-image-button");
-  link.innerText = `Download photo_${currentCanvasId}`;
+  link.innerText = `Download Photo ${currentCanvasId}`;
 
   container.appendChild(canvas);
   container.appendChild(link);
