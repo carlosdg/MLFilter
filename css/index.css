@@ -9,7 +9,7 @@ a {
 }
 
 button,
-a {
+.download-image-link {
   font: inherit;
   border: 1px solid black;
   border-radius: 5px;
@@ -19,7 +19,7 @@ a {
 }
 
 button:hover,
-a:hover {
+.download-image-link:hover {
   box-shadow: 0 5px 10px -3px #000;
 }
 
@@ -57,7 +57,7 @@ canvas {
   margin: 1rem auto;
 }
 
-.result-container > a {
+.result-container > .download-image-link {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   text-align: center;

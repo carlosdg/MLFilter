@@ -50,7 +50,7 @@ function createCanvasDownloadLink(href, {downloadedFileName = 'download', linkNa
   const link = document.createElement("a");
   link.setAttribute("download", downloadedFileName);
   link.setAttribute("href", href);
-  link.classList.add("download-image-button");
+  link.classList.add("download-image-link");
   link.innerText = linkName;
 
   return link;
