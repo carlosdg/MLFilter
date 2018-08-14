@@ -24,7 +24,7 @@ function createVideo() {
 }
 
 // Container where to add video elements
-const videoContainer = document.getElementById("video-section");
+const videoContainer = document.getElementById("video-container");
 
 /**
  * Adds the markup necessary to the page to render the given video

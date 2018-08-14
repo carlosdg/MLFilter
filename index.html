@@ -9,12 +9,16 @@
 </head>
 
 <body>
-  <section id="video-section"></section>
-  <section id="controls-section">
-    <button id="take-photo-button">Take photo</button>
+  <section>
+    <div id="video-container" class="video-container container"></div>
   </section>
-  <section id="results-section">
-    <ul id="result-list"></ul>
+  <section>
+    <div class="container">
+      <button id="take-photo-button" class="button">Take photo</button>
+    </div>
+  </section>
+  <section>
+    <ul id="result-list" class="result-list container"></ul>
   </section>
 
   <script src="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js"></script>

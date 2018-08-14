@@ -36,7 +36,7 @@ function createCanvasFromDataUrl(dataUrl, dimensions) {
 }
 
 // DOM element where we'll put the canvases
-const resultsDiv = document.getElementById("result-list");
+const resultsList = document.getElementById("result-list");
 
 /**
  * Creates a link to download the content of href.
@@ -46,7 +46,7 @@ const resultsDiv = document.getElementById("result-list");
  * @param {Object} options {downloadedFileName: <String> name that the downloaded 
  * file will be given, linkName: <String> name of the link}
  */
-function createCanvasDownloadLink(href, {downloadedFileName = 'download', linkName = 'download'} = {}) {
+function createDownloadLink(href, {downloadedFileName = 'download', linkName = 'download'} = {}) {
   const link = document.createElement("a");
   link.setAttribute("download", downloadedFileName);
   link.setAttribute("href", href);
@@ -62,21 +62,21 @@ function createCanvasDownloadLink(href, {downloadedFileName = 'download', linkNa
  * @param {HTMLCanvasElement} canvas Canvas to add to the DOM
  */
 function addCanvasToView(canvas) {
-  const imageId = resultsDiv.children.length + 1;
+  const imageId = resultsList.children.length + 1;
   canvas.setAttribute("role", "img");
   canvas.setAttribute("aria-label", `Photo ${imageId} after applying the filter`);
 
   const container = document.createElement("li");
   container.classList.add("result-container");
 
-  const downloadLink = createCanvasDownloadLink(canvas.toDataURL(), {
+  const downloadLink = createDownloadLink(canvas.toDataURL(), {
     downloadedFileName: `photo_${imageId}`,
     linkName: `Download Photo ${imageId}`
   });
 
   container.appendChild(canvas);
   container.appendChild(downloadLink);
-  resultsDiv.appendChild(container);
+  resultsList.appendChild(container);
 }
 
 export default {
