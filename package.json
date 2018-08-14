@@ -5,7 +5,9 @@
   "description": "",
   "main": "js/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server",
+    "webpack:production": "NODE_MODE=production webpack-cli",
+    "webpack:watch": "webpack-cli --watch"
   },
   "keywords": [
     "ml5js",
@@ -15,6 +17,7 @@
   "author": "Carlos Domínguez García",
   "license": "MIT",
   "devDependencies": {
+    "http-server": "^0.11.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
   }
