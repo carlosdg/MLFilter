@@ -1,8 +1,12 @@
+import {registerServiceWorker} from './utils/register_service_worker';
 import { MAX_DIMENSIONS } from "./utils/dimensions";
 import VideoUtils from "./utils/video";
 import CanvasUtils from "./utils/canvas";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Register service worker
+  registerServiceWorker();
+  
   // Getting DOM elements
   const videoStreamingCamera = VideoUtils.createVideo();
   VideoUtils.addVideoToView(videoStreamingCamera);
