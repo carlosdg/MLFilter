@@ -8,7 +8,7 @@
  * Video and images maximum dimensions. If we were to allow
  * arbitrary large video or images the app would be much slower
  */
-export const MAX_DIMENSIONS = { width: 500, height: 500 };
+export const MAX_DIMENSIONS = { width: 300, height: 300 };
 
 /**
  * Returns whether the given dimensions are in the right bounds or not
