@@ -8,17 +8,18 @@
   <meta name="author" content="Carlos Domínguez García">
   <meta name="description" content="Take photos filtered using machine learning">
 
-  <link rel="icon" href="/images/icons/icon-16x16.png">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="images/icons/icon-16x16.png">
+  <link rel="manifest" href="manifest.json">
 
   <link rel="preload" as="style" href="css/index.css">
   <link rel="preload" as="script" href="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js">
-  <link rel="preload" as="script" href="bundles/js/index.js">
+  <link rel="preload" as="script" href="index.bundle.js">
 
   <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
+  <div id="app-root"></div>
   <section>
     <div id="video-container" class="video-container container"></div>
   </section>
@@ -32,7 +33,6 @@
   </section>
 
   <script src="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js"></script>
-  <script src="bundles/js/index.js"></script>
 </body>
 
 </html>

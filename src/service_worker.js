@@ -6,7 +6,7 @@ const FULL_CACHE_NAME = `${CACHE_NAME}_${CACHE_VERSION}`;
 const CRITICAL_ASSETS = [
   "/",
   "index.html",
-  "bundles/js/index.js",
+  "index.bundle.js",
   "css/index.css",
   "https://unpkg.com/ml5@0.1.1/dist/ml5.min.js"
 ];

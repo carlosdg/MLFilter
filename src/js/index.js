@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // The canvas dimensions will be the maximum allowed but respecting
         // the width-height ratio of the camera (else the canvas
         // will look squeezed)
-        const canvasDimensions = { ...MAX_DIMENSIONS };
+        const canvasDimensions = Object.assign({}, MAX_DIMENSIONS);
         if (widthToHeigtRatio > 1) {
           // The camera is wider, need to reduce the height
           canvasDimensions.height /= widthToHeigtRatio;
