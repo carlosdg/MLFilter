@@ -6,16 +6,13 @@ import * as MediaUtils from "../utils/mediaUtils";
  * user camera and allows to take photos
  */
 export default class Camera extends React.Component {
-  constructor(...args) {
-    super(...args);
-    this.state = {
-      isRecording: false,
-      errorMessage: null
-    };
-
-    // Reference to the video DOM element
-    this.video = null;
-  }
+  state = {
+    isRecording: false,
+    errorMessage: null
+  };
+  
+  // Reference to the video DOM element
+  video = null;
 
   /**
    * When the component mounts -> try to assign the stream from the user
@@ -69,7 +66,7 @@ export default class Camera extends React.Component {
    *
    * @param {MediaStream} stream Stream to load to the video
    */
-  _loadStream(stream) {
+  _loadStream = stream => {
     if (!this.state.isRecording) {
       MediaUtils.loadStreamToMedia(stream, this.video);
 
@@ -86,7 +83,7 @@ export default class Camera extends React.Component {
    * 
    * @returns {String} Data URL of the photo taken
    */
-  takePhoto() {
+  takePhoto = () => {
     if (!this.state.isRecording) {
       return null;
     }

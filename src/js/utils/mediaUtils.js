@@ -32,3 +32,20 @@ export function loadStreamToMedia(stream, media) {
     media.src = URL.createObjectURL(stream);
   }
 }
+
+/**
+ * Returns the relationship of the width to the height for the given video
+ *
+ * @param {HTMLVideoElement} video Video to get the width and height from
+ */
+export function getAspectRatio(video) {
+  if (video.videoWidth > 0 && video.videoHeight > 0) {
+    return video.videoWidth / video.videoHeight;
+  } else {
+    throw new Error(
+      `Invalid dimensions {videoWidth: ${video.videoWidth}, videoHeight: ${
+        video.videoHeight
+      }}. They must be numbers greater than 0`
+    );
+  }
+}
