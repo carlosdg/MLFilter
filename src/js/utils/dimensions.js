@@ -1,9 +1,3 @@
-/**
- * Utility functions for dimensions
- * 
- * @author Carlos Domínguez García
- */
-
 /** 
  * Video and images maximum dimensions. If we were to allow
  * arbitrary large video or images the app would be much slower.

@@ -27,19 +27,20 @@ export default class DownloadableImage extends React.Component {
           alt={this.props.alt}
           width={this.props.width}
           height={this.props.height}
-          onLoad={this.onImageLoad}
+          onLoad={this._onImageLoad}
           ref={image => (this.image = image)}
         />
-        {this.getDownloadButton()}
+        {this._getDownloadButton()}
       </React.Fragment>
     );
   }
 
   /**
+   * [Private method]
    * Returns the right component to render as the dowload button
    * depending whether the image has been loaded or not
    */
-  getDownloadButton() {
+  _getDownloadButton() {
     if (this.state.isImageLoaded) {
       return (
         <DownloadLink
@@ -55,10 +56,11 @@ export default class DownloadableImage extends React.Component {
   }
 
   /**
+   * [Private method]
    * Load the image in the canvas. And set the component state
    * to indicate that the image has been loaded
    */
-  onImageLoad = () => {
+  _onImageLoad = () => {
     this.canvas
       .getContext("2d")
       .drawImage(this.image, 0, 0, this.props.width, this.props.height);
