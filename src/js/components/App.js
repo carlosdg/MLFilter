@@ -3,7 +3,10 @@ import React from "react";
 import Camera from "./Camera";
 import DownloadableImage from "./DownloadableImage";
 
-import { MAX_DIMENSIONS } from "../utils/dimensions";
+import {
+  MAX_DIMENSIONS,
+  getMaxDimensionsRespectingAspectRatio
+} from "../utils/dimensions";
 import * as MediaUtils from "../utils/mediaUtils";
 
 export default class App extends React.Component {
@@ -51,7 +54,7 @@ export default class App extends React.Component {
    */
   createPhotoListItem = (dataUrl, index) => {
     const cameraAspectRatio = MediaUtils.getAspectRatio(this.camera.video);
-    const dimensions = MediaUtils.respectAspectRatio(MAX_DIMENSIONS, cameraAspectRatio);
+    const dimensions = getMaxDimensionsRespectingAspectRatio(cameraAspectRatio);
 
     return (
       <li key={index}>
