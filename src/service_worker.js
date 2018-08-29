@@ -4,11 +4,10 @@ const FULL_CACHE_NAME = `${CACHE_NAME}_${CACHE_VERSION}`;
 
 // Fundamental assets for when the page loads
 const CRITICAL_ASSETS = [
-  "/",
+  ".",
   "index.html",
   "index.bundle.js",
-  "css/index.css",
-  "https://unpkg.com/ml5@0.1.1/dist/ml5.min.js"
+  "css/index.css"
 ];
 
 // While installing seize the opportunity to request and cache the critical assets
