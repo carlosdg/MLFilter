@@ -51,15 +51,7 @@ export default class App extends React.Component {
    */
   createPhotoListItem = (dataUrl, index) => {
     const cameraAspectRatio = MediaUtils.getAspectRatio(this.camera.video);
-    const dimensions = { ...MAX_DIMENSIONS };
-
-    if (cameraAspectRatio < 0) {
-      // Height is larger than width. To not pass MAX_DIMENSIONS we multiply by the ratio
-      dimensions.width *= cameraAspectRatio;
-    } else {
-      // Width is larger than height. To not pass MAX_DIMENSIONS we divide by the ratio
-      dimensions.height /= cameraAspectRatio;
-    }
+    const dimensions = MediaUtils.respectAspectRatio(MAX_DIMENSIONS, cameraAspectRatio);
 
     return (
       <li key={index}>

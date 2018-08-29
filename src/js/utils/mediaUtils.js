@@ -49,3 +49,26 @@ export function getAspectRatio(video) {
     );
   }
 }
+
+/**
+ * Given a media's dimensions and an aspect ratio that we want
+ * those dimensions to respect, returns dimensions respecting
+ * that aspect ratio
+ *
+ * @param {Object} dimensions Dimensions that want to respect the given aspect ratio
+ * @param {Number} aspectRatio Width to height relationship that dimensions need to respect
+ * @returns {Object} Dimensions respecting the aspect ratio
+ */
+export function respectAspectRatio(dimensions, aspectRatio) {
+  const result = { ...dimensions };
+  
+  if (aspectRatio < 1) {
+    // Height is larger than width and we don't want to not pass dimensions
+    result.height = result.width / aspectRatio;
+  } else {
+    // Width is larger than height and we don't want to not pass dimensions
+    result.width = result.height * aspectRatio;
+  }
+
+  return result;
+}
