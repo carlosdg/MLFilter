@@ -6,7 +6,7 @@ The ml5.js library allows us to use, in a very abstract way, Machine Learning al
 
 However, note that this application is very performance heavy and even on a laptop the style transfer can take several seconds. Also, the first time users access the site the browser needs to download the model trained for the style transfer which is around 7MB.
 
-[See the application in action](https://carlosdg.github.io/MLFilter/)
+[See the application in action](https://carlosdg.github.io/MLFilter/public)
 
 ## Download and run yourself
 
