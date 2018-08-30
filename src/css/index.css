@@ -9,13 +9,6 @@ a {
   color: inherit;
   text-decoration: none;
 }
-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: 1rem;
-}
 ul {
   margin: 0;
   padding: 0;
@@ -37,6 +30,12 @@ canvas {
  ***/
 .container {
   max-width: 1024px;
+}
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /***
