@@ -8,6 +8,10 @@ import {
 } from "../utils/dimensions";
 import * as MediaUtils from "../utils/mediaUtils";
 
+/**
+ * Main component. Renders a camera, a button to take photos
+ * and the list of photos after applying the style transfer
+ */
 export default class App extends React.Component {
   constructor(args) {
     super(...args);
@@ -43,7 +47,7 @@ export default class App extends React.Component {
         <button onClick={this._onNewPhoto} className="button">
           Take photo
         </button>
-        <DownloadableImageList imageData={this.state.imageData}/>
+        <DownloadableImageList imageData={this.state.imageData} />
       </div>
     );
   }
@@ -58,17 +62,25 @@ export default class App extends React.Component {
     this.screamStylePromise
       .then(style => style.transfer(this.camera.video))
       .then(result => {
-        const cameraAspectRatio = MediaUtils.getAspectRatio(this.camera.video);
-        const dimensions = getMaxDimensionsRespectingAspectRatio(cameraAspectRatio);
-        const newImageData = {
-          dataUrl: result.src,
-          width: dimensions.width,
-          height: dimensions.height,
-        }
-
+        const newImageData = this._getImageData(result);
         this.setState(prevState => ({
           imageData: [...prevState.imageData, newImageData]
         }));
       });
   };
+
+  /**
+   * [Private method]
+   * Given an image, returns an object with the data that defines it
+   */
+  _getImageData(image) {
+    const cameraAspectRatio = MediaUtils.getAspectRatio(this.camera.video);
+    const dimensions = getMaxDimensionsRespectingAspectRatio(cameraAspectRatio);
+
+    return {
+      dataUrl: image.src,
+      width: dimensions.width,
+      height: dimensions.height
+    };
+  }
 }
