@@ -78,6 +78,7 @@ export default class App extends React.Component {
     const dimensions = getMaxDimensionsRespectingAspectRatio(cameraAspectRatio);
 
     return {
+      date: Date.now(),
       dataUrl: image.src,
       width: dimensions.width,
       height: dimensions.height
