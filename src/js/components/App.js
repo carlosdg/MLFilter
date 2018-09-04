@@ -7,6 +7,7 @@ import {
   getMaxDimensionsRespectingAspectRatio
 } from "../utils/dimensions";
 import * as MediaUtils from "../utils/mediaUtils";
+import * as IdbUtils from "../utils/idb";
 
 /**
  * Main component. Renders a camera, a button to take photos
@@ -31,6 +32,11 @@ export default class App extends React.Component {
   componentDidMount() {
     // Loads the model used to transfer the Scream paint style
     this.screamStylePromise = ml5.styleTransfer("models/scream");
+    
+    // Get the image data stored in the browser storage from previous sessions
+    IdbUtils.getAllImageData().then(storedImageDataList =>
+      this.setState({ imageData: storedImageDataList })
+    );
   }
 
   render() {
@@ -63,6 +69,7 @@ export default class App extends React.Component {
       .then(style => style.transfer(this.camera.video))
       .then(result => {
         const newImageData = this._getImageData(result);
+        IdbUtils.saveImageData(newImageData);
         this.setState(prevState => ({
           imageData: [...prevState.imageData, newImageData]
         }));
