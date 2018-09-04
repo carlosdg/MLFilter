@@ -1,7 +1,7 @@
 import React from "react";
 import ml5 from "ml5";
 import Camera from "./Camera";
-import DownloadableImage from "./DownloadableImage";
+import DownloadableImageList from "./DownloadableImageList";
 import {
   MAX_DIMENSIONS,
   getMaxDimensionsRespectingAspectRatio
@@ -43,9 +43,7 @@ export default class App extends React.Component {
         <button onClick={this._onNewPhoto} className="button">
           Take photo
         </button>
-        <ul className="result-list container">
-          {this.state.imageData.map(this._createPhotoListItem)}
-        </ul>
+        <DownloadableImageList imageData={this.state.imageData}/>
       </div>
     );
   }
@@ -72,24 +70,5 @@ export default class App extends React.Component {
           imageData: [...prevState.imageData, newImageData]
         }));
       });
-  };
-
-  /**
-   * [Private method]
-   * Returns a list item component to show a new downloadable image which
-   * respects the aspect ratio of the camera
-   */
-  _createPhotoListItem = (imageData, index) => {
-    return (
-      <li key={index} className="result-container">
-        <DownloadableImage
-          dataUrl={imageData.dataUrl}
-          alt={`Photo ${index}`}
-          width={imageData.width}
-          height={imageData.height}
-          imageName={`Photo ${index}`}
-        />
-      </li>
-    );
   };
 }
