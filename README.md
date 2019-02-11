@@ -1,5 +1,7 @@
 # Machine Learning Filter
 
+__DEPRECATED__: for a more recent version see [https://github.com/DauteRR/StyleTransfer](https://github.com/DauteRR/StyleTransfer)
+
 Progressive Web App made with React that allows the user to take photos filtered to have the same style as [The Scream painting](https://en.wikipedia.org/wiki/The_Scream). This is done by using the [Style Transfer technique via the ml5.js library](https://ml5js.org/docs/StyleTransfer). Images are saved in indexedDB so users can still download them in later access to the application.
 
 The ml5.js library allows us to use, in a very abstract way, Machine Learning algorithms in the clients browsers, which is perfect for an offline capable application.
